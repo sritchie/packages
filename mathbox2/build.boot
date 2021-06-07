@@ -17,7 +17,7 @@
 
 (deftask build-mathbox []
   (run-commands :commands [["npm" "install" "--include-dev"]
-                           ["npm" "run" "copy"]
+                           ["npm" "run" "bundle"]
                            ["npm" "run" "generate-extern"]
                            ["rm" "-rf" "./node_modules"]]))
 
@@ -29,7 +29,7 @@
 (deftask package []
   (comp
    (build-mathbox)
-   (replace-content :in "mathbox2.bundle.js"
+   #_(replace-content :in "mathbox2.bundle.js"
                     :out "mathbox2.bundle.js"
                     :match #"module.exports = self ="
                     :value "module.exports =")

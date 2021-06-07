@@ -21,6 +21,7 @@
         "externs-generator": "^0.3.3"
     },
     "scripts": {
+        "bundle": "cross-env NODE_ENV=production browserify ./node_modules/@sicmutils/mathbox2/build/mathbox-core.js -s MathBox -o mathbox2.bundle.js",
         "copy": "cp ./node_modules/@sicmutils/mathbox2/build/mathbox-bundle.js mathbox2.bundle.js",
         "generate-extern": "generate-extern -f mathbox2.bundle.js -n MathBox -o mathbox2.ext.js"
     }
