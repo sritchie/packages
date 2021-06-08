@@ -29,14 +29,9 @@
 (deftask package []
   (comp
    (build-mathbox)
-   (replace-content :in "mathbox2.bundle.js"
-                    :out "mathbox2.bundle.js"
-                    :match #"module.exports = self ="
-                    :value "module.exports =")
    (sift :move {#".*mathbox2.bundle.js" "cljsjs/mathbox2/development/mathbox2.inc.js"
+                #".*mathbox2.bundle.min.js" "cljsjs/mathbox2/production/mathbox2.min.inc.js"
                 #".*mathbox2.ext.js" "cljsjs/mathbox2/common/mathbox2.ext.js"})
-   (minify    :in  "cljsjs/mathbox2/development/mathbox2.inc.js"
-              :out "cljsjs/mathbox2/production/mathbox2.min.inc.js")
    (sift :include #{#"^cljsjs"})
    (deps-cljs
     :foreign-libs

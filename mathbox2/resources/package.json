@@ -21,7 +21,8 @@
         "externs-generator": "^0.3.3"
     },
     "scripts": {
-        "copy": "cp ./node_modules/@sicmutils/mathbox2/build/mathbox-bundle.js mathbox2.bundle.js",
+        "copy-bundle": "cp ./node_modules/@sicmutils/mathbox2/build/mathbox-bundle.js mathbox2.bundle.js",
+        "copy-min": "cp ./node_modules/@sicmutils/mathbox2/build/mathbox-bundle.min.js mathbox2.bundle.min.js",
         "generate-extern": "generate-extern -f mathbox2.bundle.js -n MathBox -o mathbox2.ext.js"
     }
 }
